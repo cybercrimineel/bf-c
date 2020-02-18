@@ -1,5 +1,6 @@
 %macro define_bytes 3+
-%1: db %2 - %1 - 1, %3
+%1:
+    db %2 - %1 - 1, %3
 %endmacro
 
 %macro match_token 4
@@ -35,7 +36,8 @@ define_bytes g, h, "read(0,b,1);"
 define_bytes h, i, "while(*b){"
 define_bytes i, j, "}"
 define_bytes j, k, "return 0;}"
-k: db 0
+k:
+    db 0
 
 section .text
 
